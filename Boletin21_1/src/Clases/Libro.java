@@ -1,5 +1,7 @@
 package Clases;
 
+import java.util.Objects;
+
 /**
  *
  * @author clamascabaleiro
@@ -67,5 +69,42 @@ public class Libro {
     public String toString() {
         return " titulo = " + titulo + " autor = " + autor + " ISBN = " + ISBN + " prezo = " + prezo + " numeroUnd = " + numeroUnd;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.titulo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        return true;
+    }
     
+    public int compareTo(Object o) {
+        Libro l = (Libro)o;
+        if(this.titulo.compareToIgnoreCase(l.titulo)>0){
+            return 1;
+        }
+        else if(this.titulo.compareToIgnoreCase(l.titulo)<0){
+            return -1;
+        }
+        else{
+            return 0;
+        }
+    }
 }
