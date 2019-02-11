@@ -59,13 +59,8 @@ public class Libreria {
     }
 
     public void ver(ArrayList<Libro> lista) {
-        try {
-            ArrayList<Libro> lista2 = lista;
-            for (Libro la : lista2) {
-                System.out.println(la.toString());
-            }
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "El array indicado es nulo");
+        for (Libro la : lista) {
+            System.out.println(la.toString());
         }
     }
 
